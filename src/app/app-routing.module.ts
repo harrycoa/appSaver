@@ -8,9 +8,20 @@ import { OutcomeUpdateComponent } from './components/outcome/outcome-update/outc
 
 const routes: Routes = [
   { path: '', component: DefaultComponent },
+
+  {
+    path: 'outcomes',
+    children: [
+      { path: 'outcomes', component: OutcomeListComponent },
+      { path: 'outcomes/create', component: OutcomeCreateComponent },
+      { path: 'outcomes/:id/update', component: OutcomeUpdateComponent },
+    ],
+  },
+
+  /* v1.
   { path: 'outcomes', component: OutcomeListComponent },
   { path: 'outcomes/create', component: OutcomeCreateComponent },
-  { path: 'outcomes/:id/update', component: OutcomeUpdateComponent },
+  { path: 'outcomes/:id/update', component: OutcomeUpdateComponent },*/
 ];
 
 @NgModule({
