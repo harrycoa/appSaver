@@ -9,6 +9,7 @@ import { OutcomeUpdateComponent } from './components/outcome/outcome-update/outc
 import { OutcomeListComponent } from './components/outcome/outcome-list/outcome-list.component';
 import { HeaderComponent } from './shareds/header/header.component';
 import { FooterComponent } from './shareds/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FooterComponent } from './shareds/footer/footer.component';
     OutcomeUpdateComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [AppRoutingModule, BrowserModule],
   providers: [],
