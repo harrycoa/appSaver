@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { OutcomeListComponent } from './components/outcome/outcome-list/outcome-
 import { HeaderComponent } from './shareds/header/header.component';
 import { FooterComponent } from './shareds/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +25,7 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     LoginComponent,
   ],
-  imports: [AppRoutingModule, BrowserModule],
+  imports: [AppRoutingModule, BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
