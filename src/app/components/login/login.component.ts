@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginModel } from './models/login.model';
 import { IdentityService } from 'src/app/services/identity.service';
-// import { UserStorageService } from 'src/app/services/user-storage.service';
+import { UserStorageService } from 'src/app/services/user-storage.service';
 import { Router } from '@angular/router';
 
 
@@ -16,24 +16,25 @@ export class LoginComponent implements OnInit {
 
   constructor(
      private identityService: IdentityService,
-    // private userStorageService: UserStorageService,
-    // private router: Router
+     private userStorageService: UserStorageService,
+     private router: Router
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    // let self = this;
+    let self = this;
 
     this.identityService
       .signIn(this.model)
       .subscribe({
         next(data) {
-          // self.userStorageService.set(data);
-          // self.router.navigate(['/']);
+          self.userStorageService.set(data);
+          self.router.navigate(['/']);
+          console.log(data);
         },
         error() {
-          // self.invalid = true;
+          self.invalid = true;
         },
     });
   }
