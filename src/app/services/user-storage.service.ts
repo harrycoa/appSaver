@@ -25,9 +25,12 @@ export class UserStorageService {
     return localStorage.getItem(this.key) !== null;
   }
 
-
   // seteamos el user
   set(object): void {
     localStorage.setItem(this.key, JSON.stringify(object));
+  }
+
+  destroy(): void {
+    localStorage.removeItem(this.key);
   }
 }
