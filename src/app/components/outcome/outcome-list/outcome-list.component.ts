@@ -19,7 +19,7 @@ export class OutcomeListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let now = new Date();
+    const now = new Date();
     this.year = now.getFullYear();
     // los meses en javascript comienzan en 0
     this.month = now.getMonth() + 1;
@@ -28,7 +28,7 @@ export class OutcomeListComponent implements OnInit {
   }
 
   getAll(): void {
-    let request = this.outcomeService.getAll(
+    const request = this.outcomeService.getAll(
       this.year,
       this.month,
       this.userStorageService.user.id

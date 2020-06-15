@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
+// cultura
+import localEsPe from '@angular/common/locales/es-PE';
+import { registerLocaleData } from '@angular/common';
+
+// funcion que registra nuestra cultura
+registerLocaleData(localEsPe);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +34,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   ],
   imports: [AppRoutingModule, BrowserModule, FormsModule, HttpClientModule],
   providers: [
+    { provide: LOCALE_ID, useValue: 'es-PE' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'PEN' },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

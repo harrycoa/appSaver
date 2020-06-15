@@ -27,47 +27,14 @@
 
 <div class="columns is-multiline">
 
-    <div class="column is-4">
+    <div *ngFor="let item of items" class="column is-4">
         <dir class="box">
             <a class="delete is-pulled-right"></a>
-            <div class="title is-size-4">US$24</div>
+            <div class="title is-size-4">{{ item.amount | currency }}</div>
             <div class="subtitle is-size-5">
-                <a [routerLink]="['/1/update']">comida para gato</a>
+                <a [routerLink]="['/1/update']">{{ item.detail }}</a>
             </div>
-            <div class="has-text-grey">VIE.24 ABR</div>
+            <div class="has-text-grey">{{ item.created_at | date: 'E dd hh:mma' | uppercase}}</div>
         </dir>
     </div>
-
-
-    <div class="column is-4">
-        <dir class="box">
-            <a class="delete is-pulled-right"></a>
-            <div class="title is-size-4">US$24</div>
-            <div class="subtitle is-size-5">
-                <a>comida para gato</a>
-            </div>
-            <div class="has-text-grey">VIE.24 ABR</div>
-        </dir>
-    </div>
-    <div class="column is-4">
-        <dir class="box">
-            <a class="delete is-pulled-right"></a>
-            <div class="title is-size-4">US$24</div>
-            <div class="subtitle is-size-5">
-                <a>comida para gato</a>
-            </div>
-            <div class="has-text-grey">VIE.24 ABR</div>
-        </dir>
-    </div>
-    <div class="column is-4">
-        <dir class="box">
-            <a class="delete is-pulled-right"></a>
-            <div class="title is-size-4">US$24</div>
-            <div class="subtitle is-size-5">
-                <a>comida para gato</a>
-            </div>
-            <div class="has-text-grey">VIE.24 ABR</div>
-        </dir>
-    </div>
-
 </div>
