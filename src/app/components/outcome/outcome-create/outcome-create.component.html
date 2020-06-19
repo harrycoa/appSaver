@@ -1,11 +1,11 @@
 <h1 class="title">Registrar un nuevo gasto</h1>
 <h2 class="subtitle">Desde aquí podrá registrar un nuevo gasto.</h2>
 
-<form>
+<form (ngSubmit)="onSubmit()">
     <div class="field">
         <label class="label">Monto</label>
         <div class="control">
-            <input required minlength="1" name="amount" class="input" type="number" placeholder="Ingrese el monto">
+            <input [(ngModel)]="model.amount" required minlength="1" name="amount" class="input" type="number" placeholder="Ingrese el monto">
         </div>
 
     </div>
@@ -13,7 +13,7 @@
     <div class="field">
         <label class="label">Detalle</label>
         <div class="control">
-            <input required min="1" minlength="5" name="detail" class="input" type="text" placeholder="Ingrese el sustento del gasto">
+            <input [(ngModel)]="model.detail" required min="1" minlength="5" name="detail" class="input" type="text" placeholder="Ingrese el sustento del gasto">
         </div>
 
     </div>
