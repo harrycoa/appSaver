@@ -17,6 +17,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 // cultura
 import localEsPe from '@angular/common/locales/es-PE';
 import { registerLocaleData } from '@angular/common';
+import { OutcomeDetailComponent } from './components/outcome/outcome-list/outcome-detail/outcome-detail.component';
 
 // funcion que registra nuestra cultura
 registerLocaleData(localEsPe);
@@ -31,6 +32,7 @@ registerLocaleData(localEsPe);
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    OutcomeDetailComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, FormsModule, HttpClientModule],
   providers: [
