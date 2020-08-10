@@ -1,26 +1,39 @@
 <h1 class="title">Registrar un nuevo gasto</h1>
 <h2 class="subtitle">Desde aquí podrá registrar un nuevo gasto.</h2>
 
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #outcomeForm="ngForm">
     <div class="field">
         <label class="label">Monto</label>
         <div class="control">
-            <input [(ngModel)]="model.amount" required minlength="1" name="amount" class="input" type="number" placeholder="Ingrese el monto">
+            <input [class.is-danger]="amount.invalid && amount.dirty" [class.is-success]="!amount.invalid && amount.dirty"  
+                [(ngModel)]="model.amount" #amount="ngModel" required minlength="1" 
+                name="amount" class="input" type="number" placeholder="Ingrese el monto">
         </div>
+        <ng-container *ngIf="amount.invalid && amount.dirty">
+            <span *ngIf="amount.errors.required" class="help is-danger">El monto no puede ser nulo</span>
+            <span *ngIf="amount.errors.minlength" class="help is-danger">Monto debe ser mayor o igual a 1</span>
+        </ng-container>
 
     </div>
 
     <div class="field">
         <label class="label">Detalle</label>
         <div class="control">
-            <input [(ngModel)]="model.detail" required min="1" minlength="5" name="detail" class="input" type="text" placeholder="Ingrese el sustento del gasto">
+            <input [class.is-danger]="detail.invalid && detail.dirty" [class.is-success]="!detail.invalid && detail.dirty" 
+            [(ngModel)]="model.detail" #detail="ngModel" required minlength="10" name="detail" 
+            class="input" type="text" placeholder="Ingrese el sustento del gasto">
         </div>
+
+        <ng-container *ngIf="detail.invalid && detail.dirty">
+            <span *ngIf="detail.errors.required" class="help is-danger">El detalle no puede ser nulo</span>
+            <span *ngIf="detail.errors.minlength" class="help is-danger">Monto debe ser como minimo 10 caracteres</span>
+        </ng-container>
 
     </div>
 
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link is-medium">Guardar</button>
+            <button [disabled]="!outcomeForm.form.valid" class="button is-link is-medium">Guardar</button>
         </div>
         <div class="control">
             <a routerLink="/outcomes" class="button is-link is-light is-medium">Volver</a>

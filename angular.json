@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "appSaver"
+    }
+  },
+  "defaultProject": "appSaver",
+  "cli": {
+    "analytics": false
+  }
 }
