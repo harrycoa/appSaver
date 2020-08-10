@@ -1,7 +1,11 @@
 <h1 class="title">Registrar un nuevo gasto</h1>
 <h2 class="subtitle">Desde aquí podrá registrar un nuevo gasto.</h2>
 
-<form (ngSubmit)="onSubmit()" #outcomeForm="ngForm">
+<div *ngIf="loading" class="has-text-centered is-size-3">
+    -- Procesando Informacion
+</div>
+
+<form *ngIf="!loading" (ngSubmit)="onSubmit()" #outcomeForm="ngForm">
     <div class="field">
         <label class="label">Monto</label>
         <div class="control">

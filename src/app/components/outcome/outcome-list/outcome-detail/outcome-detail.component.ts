@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { OutcomeModel } from '../../../login/models/outcome.nodel';
+import { OutcomeModel } from '../../../login/models/outcome.model';
 
 @Component({
   selector: 'app-outcome-detail',

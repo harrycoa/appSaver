@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OutcomeModel } from '../../login/models/outcome.nodel';
+import { OutcomeModel } from '../../login/models/outcome.model';
 import { OutcomeService } from '../../../services/outcome.service';
 import { UserStorageService } from '../../../services/user-storage.service';
 
